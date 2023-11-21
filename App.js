@@ -1,5 +1,5 @@
 import { ImageBackground, StyleSheet, SafeAreaView } from 'react-native';
-import StrartGameScreen from './screens/StartGameScreen';
+import StartGameScreen from './screens/StartGameScreen';
 import GameScreen from './screens/GameScreen';
 import {LinearGradient } from 'expo-linear-gradient';
 import { useState, useEffect, useRef } from 'react';
@@ -22,7 +22,7 @@ export default function App() {
     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
   })
   
-  let screen = <StrartGameScreen onPickNumber={pickedNumberHandler} />; 
+  let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />; 
 
   function pickedNumberHandler(pickedNumber) {
     setUserNumber(pickedNumber);
@@ -38,7 +38,7 @@ export default function App() {
   }
 
   function startNewGame() {
-    screen = <StrartGameScreen onPickNumber={pickedNumberHandler} />; 
+    screen = <StartGameScreen onPickNumber={pickedNumberHandler} />; 
     setUserNumber();
     setGameIsOver(false);
     setRoundCount(1);

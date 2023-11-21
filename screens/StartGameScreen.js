@@ -6,7 +6,7 @@ import Title from "../components/ui/Title";
 import Card from "../components/ui/Card";
 import InstructionText from "../components/ui/InstructionText";
 
-function StrartGameScreen(props) {
+function StartGameScreen(props) {
     
     const [enteredvalue, setEnteredValue] = useState('');
 
@@ -55,7 +55,7 @@ function StrartGameScreen(props) {
     );
 }
 
-export default StrartGameScreen;
+export default StartGameScreen;
 
 const styles = StyleSheet.create({
     numberInput: {
