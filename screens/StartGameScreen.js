@@ -1,4 +1,4 @@
-import { TextInput, View, StyleSheet, Alert, Text } from "react-native";
+import { TextInput, View, StyleSheet, Alert, KeyboardAvoidingView, ScrollView } from "react-native";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import { useState } from "react";
 import Colors from "../utility/colors";
@@ -31,27 +31,31 @@ function StartGameScreen(props) {
     }
 
     return (
-        <View style={styles.rootContainer}>
-            <Title title='Guess My Number'></Title>
-            <Card>
-                <InstructionText>Enter A Number</InstructionText>
-                <TextInput 
-                    style={styles.numberInput} 
-                    maxLength={2} 
-                    keyboardType="number-pad"
-                    value={enteredvalue}
-                    onChangeText={numberInputHandler}
-                />
-                <View style={styles.buttonsPosition}>
-                    <View style={{ flex: 1 }}>
-                        <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
-                    </View>
-                    <View style={{ flex: 1 }}>
-                        <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
-                    </View>
+        <ScrollView>
+            <KeyboardAvoidingView behavior="position">
+                <View style={styles.rootContainer}>
+                    <Title title='Guess My Number'></Title>
+                    <Card>
+                        <InstructionText>Enter A Number</InstructionText>
+                        <TextInput 
+                            style={styles.numberInput} 
+                            maxLength={2} 
+                            keyboardType="number-pad"
+                            value={enteredvalue}
+                            onChangeText={numberInputHandler}
+                        />
+                        <View style={styles.buttonsPosition}>
+                            <View style={{ flex: 1 }}>
+                                <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
+                            </View>
+                            <View style={{ flex: 1 }}>
+                                <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
+                            </View>
+                        </View>
+                    </Card>
                 </View>
-            </Card>
-        </View>
+            </KeyboardAvoidingView>
+        </ScrollView>
     );
 }
 

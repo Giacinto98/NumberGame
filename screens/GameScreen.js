@@ -1,4 +1,4 @@
-import { StyleSheet, View, Alert } from "react-native";
+import { StyleSheet, View, Alert, ScrollView } from "react-native";
 import Title from "../components/ui/Title";
 import { useEffect, useState } from "react";
 import NumberContainer from "../components/game/NumberContianer";
@@ -44,25 +44,27 @@ function GameScreen ({ userNumber, onGameOver, onNextRound }) {
     }
     
     return (
-        <View style={styles.screen}>
-            <Title title='Opponent is guest'/>
-            <NumberContainer>{currentGuess}</NumberContainer>
-            <Card>
-                <InstructionText>Higher or lower?</InstructionText>
-                <View style={styles.buttonContainer}>
-                    <View style={{flex: 1}}>
-                        <PrimaryButton onPress={() => nextGuessHandler('lower')}>
-                            <Ionicons name='md-remove' size={24} color='white' />
-                        </PrimaryButton>
+        <ScrollView>
+            <View style={styles.screen}>
+                <Title title='Opponent is guest'/>
+                <NumberContainer>{currentGuess}</NumberContainer>
+                <Card>
+                    <InstructionText>Higher or lower?</InstructionText>
+                    <View style={styles.buttonContainer}>
+                        <View style={{flex: 1}}>
+                            <PrimaryButton onPress={() => nextGuessHandler('lower')}>
+                                <Ionicons name='md-remove' size={24} color='white' />
+                            </PrimaryButton>
+                        </View>
+                        <View style={{flex: 1}}>
+                            <PrimaryButton onPress={() => nextGuessHandler('upper')}>
+                                <Ionicons name='md-add' size={24} color='white' />
+                            </PrimaryButton>
+                        </View>
                     </View>
-                    <View style={{flex: 1}}>
-                        <PrimaryButton onPress={() => nextGuessHandler('upper')}>
-                            <Ionicons name='md-add' size={24} color='white' />
-                        </PrimaryButton>
-                    </View>
-                </View>
-            </Card>
-        </View>
+                </Card>
+            </View>
+        </ScrollView>
     );
 }
 
